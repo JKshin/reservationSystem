@@ -1,3 +1,3 @@
-function buttonClick(){
-	window.alert("aaa");
-}
+$(document).ready(function(){
+	
+});
