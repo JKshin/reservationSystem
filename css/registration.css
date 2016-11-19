@@ -21,40 +21,30 @@ table{
 
 .content-menu{
 	border : 1px solid black;
-	padding-top: 10%;
-	padding-bottom: 10%;
+	padding-top: 1%;
+	padding-bottom: 1%;
 	padding-left: 30%;
 	padding-right: 30%;
 	width : 40%;
-	height : 40%;
+	height : 80%;
 }
 
-.pay-section{
+.registration-section{
 	border : 1px solid black;
 	padding-top : 5%;
 	padding-bottom: 5%;
 	padding-left : 10%;
 	padding-right : 10%;
-	width : 80%;
-	height : 50%;
-}
-
-.id-section{
-	height : 30%;
-	padding-top : 1%;
-	padding-left : 1%;
-}
-
-.pwd-section{
-	height : 30%;
-	padding-top : 1%;
-	padding-left : 1%;
-}
-
-.id{
 	width : 100%;
+	height : 80%;
 }
-.pwd{
+
+.input-section{
+	height : 30%;
+	padding-top : 1%;
+	padding-left : 1%;
+}
+.input{
 	width : 100%;
 }
 
@@ -62,22 +52,13 @@ table{
 	border : 1px solid black;
 	padding-left: 10%;
 	padding-right: 10%;
+	width : 100%;
 	height : 50px;
 }
 
 .registration-button{
 	float : left;
 	width : 40%;
-}
-
-.login-button{
-	float : right;
-	width : 40%;
-}
-
-.login{
-	width : 100%;
-	height : 100%;
 }
 
 .registration{
