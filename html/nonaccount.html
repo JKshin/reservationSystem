@@ -7,5 +7,67 @@
 <link rel="stylesheet" type="text/css" href="/system/css/nonaccount.css">
 </head>
 <body>
+<div class="background">
+	<div class="header-menu"></div>
+	<div class="content-menu">
+		<div class="pay-section">
+			<table>
+				<tr>
+					<td class="fixed-text">
+						계좌 만료일 : 
+					</td>
+					<td>
+						<div class="dueDate-section">
+							<span id="year" class="dueDate">0000년</span><span id="month" class="dueDate">00월</span><span id="date" class="dueDate">00일</span><span id="time" class="dueDate">00:00:00</span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="fixed-text">
+						금액 : 
+					</td>
+					<td>
+						<div class="invoice-section">
+							<span id="invoice"></span>원
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="fixed-text">
+						은행 선택 : 
+					</td>
+					<td>
+						<div class="bank-section">
+							<select name="bank" class ="bank">
+								<option value="AAA">AAA 은행</option>
+								<option value="BBB">BBB 은행</option>
+								<option value="CCC">CCC 은행</option>
+							</select>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="fixed-text">
+						예금주명 : 
+					</td>
+					<td>
+						<div class="accountHost-section">
+							<input type="text" id="host" class="host">
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="button-section">
+			<div class="cancel-button">
+				<button type="button" class="cancel">취소</button>
+			</div>
+			<div class="next-button">
+				<button type="button" class="next">결제 요청</button>
+			</div>
+		</div>
+	</div>
+	<div class="footer-menu"></div>
+</div>
 </body>
 </html>

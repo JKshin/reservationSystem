@@ -1,11 +1,87 @@
 <!DOCTYPE>
 <html>
-<title>credit card pay</title>
+<title>credit</title>
 <head>
 <script src="/system/js/credit.js"></script>
 <script src="/system/js/jquery-3.1.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/system/css/credit.css">
 </head>
 <body>
+<div class="background">
+	<div class="header-menu"></div>
+	<div class="content-menu">
+		<div class="pay-section">
+			<table>
+				<tr>
+					<td class="fixed-text">
+						금액 : 
+					</td>
+					<td>
+						<div class="invoice-section">
+							<span id="invoice">0</span>원
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="fixed-text">
+						카드사 선택 : 
+					</td>
+					<td>
+						<div class="method-section">
+							<select name="method" class ="method">
+								<option value="AAA">AAA card</option>
+								<option value="BBB">BBB card</option>
+								<option value="CCC">CCC card</option>
+							</select>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="fixed-text">
+						카드 번호 입력 : 
+					</td>
+					<td>
+						<div class="cardNumber-section">
+							<div class="cardNumber">
+							<input type="number" id="firstNumbers" class="firstNumbers">
+							</div>
+							-
+							<div class="cardNumber">
+							<input type="number" id="secondNumbers" class="secondNumbers">
+							</div>
+							-
+							<div class="cardNumber">
+							<input type="number" id="thirdNumbers" class="thirdNumbers">
+							</div>
+							-
+							<div class="cardNumber">
+							<input type="number" id="thirdNumbers" class="fourthNumbers">
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="fixed-text">
+						유효 연월 : 
+					</td>
+					<td>
+						<div class="validDate-section">
+							<input type="month" id="validDate" class="validDate">
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="button-section">
+			<div class="cancel-button">
+				<button type="button" class="cancel">취소</button>
+			</div>
+			<div class="next-button">
+				<button type="button" class="next">결제 요청</button>
+			</div>
+		</div>
+	</div>
+	<div class="footer-menu"></div>
+</div>
 </body>
 </html>
