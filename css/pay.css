@@ -25,16 +25,17 @@ table, tr, td{
 	height : 80%;
 }
 
-.reservation{
-	background-color : #ff3333;
+.reservation-log, .train-info{
+	background-color : #ff9999;
 	width : 90%;
 	height : 10%;
 	margin-left : 5px;
+	margin-top : 5px;
 	text-align : center;
 }
 
-.reservation-log{
-	background-color : #ff9999;
+.reservation{
+	background-color : #ff3333;
 	width : 90%;
 	height : 10%;
 	margin-left : 5px;
