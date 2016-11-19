@@ -1,27 +1,44 @@
-*{
-	border : 1px solid black;
+
+table, tr, td{
+	border:1px solid black;
+}
+.background{
+
+	height : 100%;
+	padding-left : 10%;
+	padding-right : 10%;
 }
 
 .header{
-
+	height : 10%;
 }
 
 .side{
-
+	background-color: #aaaaaa;
+	float : left;
+	width : 10%;
+	height : 80%;
 }
 
 .reservation{
-
+	background-color : #ff9999;
+	width : 90%;
+	height : 10%;
+	margin-left : 5px;
+	text-align : center;
 }
 
 .reservation-log{
-
+	background-color : #ff3333;
+	width : 90%;
+	height : 10%;
+	margin-left : 5px;
+	margin-top : 5px;
+	text-align : center;
 }
 
-.content{
-
-}
 
 .footer{
-	
+	clear : both;
+	height : 10%;
 }
