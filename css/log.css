@@ -2,14 +2,23 @@
 table, tr, td{
 	border:1px solid black;
 }
-.background{
 
+h1{
+	margin-left : 15%;
+}
+
+table{
+	margin-left : 15%;
+	width : 80%;
+}
+.background{
 	height : 100%;
 	padding-left : 10%;
 	padding-right : 10%;
 }
 
 .header{
+	background-color: #ff3333;
 	height : 10%;
 }
 
@@ -17,6 +26,10 @@ table, tr, td{
 	background-color: #aaaaaa;
 	float : left;
 	width : 10%;
+	height : 80%;
+}
+
+.content{
 	height : 80%;
 }
 
@@ -29,7 +42,8 @@ table, tr, td{
 	text-align : center;
 }
 
-.reservation, .train-info{
+
+.reservation, .nonpayment{
 	background-color : #ff9999;
 	width : 90%;
 	height : 10%;
@@ -37,7 +51,6 @@ table, tr, td{
 	margin-top : 5px;
 	text-align : center;
 }
-
 
 .footer{
 	clear : both;

@@ -2,6 +2,11 @@
 table, tr, td{
 	border:1px solid black;
 }
+
+h1{
+	margin-left : 5%;
+}
+
 .background{
 
 	height : 100%;
@@ -10,6 +15,7 @@ table, tr, td{
 }
 
 .header{
+	background-color : #ff3333;
 	height : 10%;
 }
 
@@ -20,7 +26,14 @@ table, tr, td{
 	height : 80%;
 }
 
-.train-info, .reservation-log{
+
+.content{
+	height : 80%;
+	margin-left : 15%;
+	margin-top : 5%;
+}
+
+.reservation-log, .nonpayment{
 	background-color : #ff9999;
 	width : 90%;
 	height : 10%;
@@ -38,6 +51,9 @@ table, tr, td{
 	text-align : center;
 }
 
+.select{
+	background-color: #aaaaaa;
+}
 
 .footer{
 	clear : both;

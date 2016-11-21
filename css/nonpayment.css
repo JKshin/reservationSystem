@@ -2,14 +2,23 @@
 table, tr, td{
 	border:1px solid black;
 }
-.background{
 
+h1{
+	margin-left : 15%;
+}
+
+table{
+	margin-left : 15%;
+	width : 80%;
+}
+.background{
 	height : 100%;
 	padding-left : 10%;
 	padding-right : 10%;
 }
 
 .header{
+	background-color: #ff3333;
 	height : 10%;
 }
 
@@ -20,8 +29,12 @@ table, tr, td{
 	height : 80%;
 }
 
-.reservation, .reservation-log{
-	background-color : #ff9999;
+.content{
+	height : 80%;
+}
+
+.nonpayment{
+	background-color : #ff3333;
 	width : 90%;
 	height : 10%;
 	margin-left : 5px;
@@ -29,8 +42,8 @@ table, tr, td{
 	text-align : center;
 }
 
-.train-info{
-	background-color : #ff3333;
+.reservation-log, .reservation{
+	background-color : #ff9999;
 	width : 90%;
 	height : 10%;
 	margin-left : 5px;
