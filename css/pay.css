@@ -26,7 +26,7 @@ table, tr, td{
 	height : 80%;
 }
 
-.reservation-log, .reservation{
+.reservation-log{
 	background-color : #ff9999;
 	width : 90%;
 	height : 10%;
@@ -35,7 +35,7 @@ table, tr, td{
 	text-align : center;
 }
 
-.nonpayment{
+.reservation{
 	background-color : #ff3333;
 	width : 90%;
 	height : 10%;
