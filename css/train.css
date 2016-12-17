@@ -42,6 +42,10 @@ h1{
 	text-align : center;
 }
 
+.search{
+	float : right;
+}
+
 .reservation{
 	background-color : #ff3333;
 	width : 90%;

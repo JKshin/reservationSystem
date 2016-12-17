@@ -19,46 +19,51 @@
 <div class = "background">
 	<div class = "header"></div>
 	<div class = "side">
-		<div class = "reservation">예매</div>
-		<div class = "reservation-log">예매 조회</div>
+		<div class = "reservation"><a href="http://52.78.4.120:8081/system/html/train.html">예매</a></div>
+		<div class = "reservation-log"><a href="http://52.78.4.120:8081/system/html/log.html">예매 조회</a></div>
 	</div>
 	<div class = "content">
 		<h1> 열차 선택 </h1>
-		<table>
+		<table id="table_train">
 			<thead>
 				<tr class="select">
 					<td colspan = "2">
 						<div>
-							출발 일시
-							<input type="date" name="date" class="date">
+							출발일
+							<input type="date" id="date" name="date" class="date"><br>
+							출발 시간
+							<input type="time" id="time" name="time" class="time">
 						</div>
 					</td>
 					<td colspan = "2">
 						<div>
 							출발역
-							<select name="src" class ="src">
-								<option value="src1">대전역</option>
-								<option value="src2">서울역</option>
-								<option value="src3">영등포역</option>
-								<option value="src4">안양역</option>
-								<option value="src5">서대전역</option>
-								<option value="src6">부산역</option>
-								<option value="src7">대구역</option>
+							<select id="src" name="src" class ="src">
+								<option value="대전역">대전역</option>
+								<option value="서울역">서울역</option>
+								<option value="영등포역">영등포역</option>
+								<option value="안양역">안양역</option>
+								<option value="서대전역">서대전역</option>
+								<option value="부산역">부산역</option>
+								<option value="대구역">대구역</option>
 							</select>
 						</div>
 					</td>
 					<td colspan = "2">
 						<div>
 							도착역
-							<select name="dst" class ="dst">
-								<option value="dst1">서울역</option>
-								<option value="dst2">영등포역</option>
-								<option value="dst3">안양역</option>
-								<option value="dst4">서대전역</option>
-								<option value="dst5">부산역</option>
-								<option value="dst6">대구역</option>
-								<option value="dst7">용산역</option>
+							<select id="dst" name="dst" class ="dst">
+								<option value="서울역">서울역</option>
+								<option value="영등포역">영등포역</option>
+								<option value="안양역">안양역</option>
+								<option value="서대전역">서대전역</option>
+								<option value="부산역">부산역</option>
+								<option value="대구역">대구역</option>
+								<option value="용산역">용산역</option>
 							</select>
+							<div class="search">
+								<button type ="button" id ="search">검색</button>
+							</div>
 						</div>
 					</td>
 				</tr>
@@ -72,62 +77,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>ktx-100</td>
-					<td>대전역</td>
-					<td>서울역</td>
-					<td>15:30</td>
-					<td>16:40</td>
-					<td>예약가능</td>
-				</tr>
-				<tr>
-					<td>ktx-110</td>
-					<td>대전역</td>
-					<td>서울역</td>
-					<td>15:51</td>
-					<td>17:21</td>
-					<td>예약가능</td>
-				</tr>
-				<tr>
-					<td>ktx-120</td>
-					<td>대전역</td>
-					<td>서울역</td>
-					<td>16:30</td>
-					<td>18:30</td>
-					<td>예약가능</td>
-				</tr>
-				<tr>
-					<td>ktx-130</td>
-					<td>대전역</td>
-					<td>서울역</td>
-					<td>17:00</td>
-					<td>19:00</td>
-					<td>예약가능</td>
-				</tr>
-				<tr>
-					<td>ktx-101</td>
-					<td>대전역</td>
-					<td>서울역</td>
-					<td>18:01</td>
-					<td>19:11</td>
-					<td>예약가능</td>
-				</tr>
-				<tr>
-					<td>ktx-111</td>
-					<td>대전역</td>
-					<td>서울역</td>
-					<td>18:21</td>
-					<td>19:51</td>
-					<td>예약가능</td>
-				</tr>
-				<tr>
-					<td>ktx-121</td>
-					<td>대전역</td>
-					<td>서울역</td>
-					<td>19:00</td>
-					<td>21:00</td>
-					<td>예약가능</td>
-				</tr>
+				
 			</tbody>
 		</table>
 	</div>
