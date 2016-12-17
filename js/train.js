@@ -88,14 +88,15 @@ function train(date, time, src, dst){
 function reservationbtn(i){
 	var tname = $("#reservation"+i).attr("tname");
 	var src = $("#reservation"+i).attr("src");
+	var dst = $("#reservation"+i).attr("dst");
 	var dptime = $("#reservation"+i).attr("dptime");
-	document.cookie = "tname = "+tname+";";
-	document.cookie = "src = "+src+";";
-	document.cookie = "dptime = "+dptime+";";
-	var ca = document.cookie.split(";");
-	for(var i = 0; i< ca.length; i++){
-		alert(ca);
-	}
+	var srtime = $("#reservation"+i).attr("artime");
+	document.cookie += "tname = "+tname+";";
+	document.cookie += "tsrc = "+src+";";
+	document.cookie += "tdst = "+dst+";";
+	document.cookie += "dptime = "+dptime+";";
+	document.cookie += "artime = "+artime+";";
+	location.href="http://52.78.4.120:8081/system/html/seat.html";
 }
 
 function list_align(list){
