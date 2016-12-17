@@ -97,6 +97,12 @@ function reservationbtn(i){
 	setCookie("tdst", dst, 1);
 	setCookie("dptime", dptime, 1);
 	setCookie("artime", artime, 1);
+
+	// document.cookie = "tname = "+tname+"; ";
+	// document.cookie += "tsrc = "+src+"; ";
+	// document.cookie += "tdst = "+dst+"; ";
+	// document.cookie += "dptime = "+dptime+"; ";
+	// document.cookie += "artime = "+artime+"; ";
 	location.href="http://52.78.4.120:8081/system/html/seat.html";
 }
 

@@ -69,18 +69,6 @@ h1{
 	text-align : center;
 }
 
-.selectedseat{
-	background-color : blue;
-}
-
-.selectingseat{
-	background-color : green;
-}
-
-.seatSlot{
-	cursor : pointer;
-}
-
 
 .footer{
 	clear : both;

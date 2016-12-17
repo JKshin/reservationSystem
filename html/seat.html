@@ -20,20 +20,16 @@
 <div class = "background">
 	<div class = "header"></div>
 	<div class = "side">
-		<div class = "reservation"><a href="http://52.78.4.120:8081/system/html/train.html">예매</a></div>
-		<div class = "reservation-log"><a href="http://52.78.4.120:8081/system/html/log.html">예매 조회</a></div>
+		<div class = "reservation">예매</div>
+		<div class = "reservation-log">예매 조회</div>
 	</div>
 	<div class = "content">
 		<h1>좌석 선택</h1>
 		<table id="table_seat">
 			<thead>
 				<tr>
-					<td colspan="2">열차 코드 : </td>	
-					<td colspan="2">
-						<div id = "trcode"></div>
-					</td>
 					<td>
-						<div id = "count"></div>
+						열차 코드 : <div id = "trcode"></div>
 					</td>
 				</tr>
 				<tr>
@@ -48,6 +44,8 @@
 								<option value="6">6호 차</option>
 								<option value="7">7호 차</option>
 								<option value="8">8호 차</option>
+								<option value="9">9호 차</option>
+								<option value="10">10호 차</option>
 							</select>
 						</div>
 					</td>
@@ -67,12 +65,6 @@
 				
 			</tbody>
 		</table>
-		<div style="float : right; padding-right : 48%;">
-				<div style="float : left" id="payment"></div><div style="float : left">원</div>
-				<div style="float : left">
-						<button style="width : 100px; height : 20px; float : right" type="button" id="paymentbtn" class="paymentbtn">결제</button>
-				</div>
-		</div>
 	</div>
 	<div class = "footer"></div>
 </div>

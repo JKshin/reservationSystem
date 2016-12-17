@@ -1,27 +1,14 @@
-
-var count = 0;
-var pay = 0;
-var seatList = new Array();
 $(document).ready(function(){
 	var tname = getCookie("tname");
 	var dptime = getCookie("dptime");
 	var src = getCookie("tsrc");
 	var tnum = $("#trainNum option:selected").val();
 	seat(tname, dptime, src, tnum);
-	$("#trcode").html(tname);
+	$("#trcode").innerHTML = "tname";
 	$("#search").click(function(){
 		tnum = $("#trainNum option:selected").val();
 		seat(tname, dptime, src, tnum);
 	});
-
-	$("#paymentbtn").click(function(){
-		setCookie("pay", pay, 1);
-		setCookie("count", count, 1);
-		setCookie("tnum", tnum, 1);
-
-		location.href="http://52.78.4.120:8081/system/html/pay.html";
-	});
-
 });
 
 function seat(tname, dptime, src, tnum){
@@ -52,19 +39,13 @@ function seat(tname, dptime, src, tnum){
 
 					col = row.insertCell(row.cells.length);
 					$(col).css("vertical-align", "middle");
-					if(datalist[idx].isEmpty == "0")
-						col.innerHTML = '<div id="'+idx+'" class="seatSlot selectedseat" pay="'+datalist[idx].expense+'">'+datalist[idx].seatNum+'</div>';
-					else
-						col.innerHTML = '<div id="'+idx+'" class="seatSlot" onclick="selecting_seat('+idx+')" pay="'+datalist[idx].expense+'">'+datalist[idx].seatNum+'</div>';
-					idx++;
+					if(datalist[i].isEmpty == "0") $(col).css("background-color", "blue");
+					col.innerHTML = datalist[idx++].seatNum;
 
 					col = row.insertCell(row.cells.length);
 					$(col).css("vertical-align", "middle");
-					if(datalist[idx].isEmpty == "0")
-						col.innerHTML = '<div id="'+idx+'" class="seatSlot selectedseat" pay="'+datalist[idx].expense+'">'+datalist[idx].seatNum+'</div>';
-					else
-						col.innerHTML = '<div id="'+idx+'" class="seatSlot" onclick="selecting_seat('+idx+')" pay="'+datalist[idx].expense+'">'+datalist[idx].seatNum+'</div>';
-					idx++;
+					if(datalist[i].isEmpty == "0") $(col).css("background-color", "blue");
+					col.innerHTML = datalist[idx++].seatNum;
 
 					col = row.insertCell(row.cells.length);
 					$(col).css("vertical-align", "middle");
@@ -72,19 +53,13 @@ function seat(tname, dptime, src, tnum){
 
 					col = row.insertCell(row.cells.length);
 					$(col).css("vertical-align", "middle");
-					if(datalist[idx].isEmpty == "0")
-						col.innerHTML = '<div id="'+idx+'" class="seatSlot selectedseat" pay="'+datalist[idx].expense+'">'+datalist[idx].seatNum+'</div>';
-					else
-						col.innerHTML = '<div id="'+idx+'" class="seatSlot" onclick="selecting_seat('+idx+')" pay="'+datalist[idx].expense+'">'+datalist[idx].seatNum+'</div>';
-					idx++;
+					if(datalist[i].isEmpty == "0") $(col).css("background-color", "blue");
+					col.innerHTML = datalist[idx++].seatNum;
 
 					col = row.insertCell(row.cells.length);
 					$(col).css("vertical-align", "middle");
-					if(datalist[idx].isEmpty == "0")
-						col.innerHTML = '<div id="'+idx+'" class="seatSlot selectedseat" pay="'+datalist[idx].expense+'">'+datalist[idx].seatNum+'</div>';
-					else
-						col.innerHTML = '<div id="'+idx+'" class="seatSlot" onclick="selecting_seat('+idx+')" pay="'+datalist[idx].expense+'">'+datalist[idx].seatNum+'</div>';
-					idx++;
+					if(datalist[i].isEmpty == "0") $(col).css("background-color", "blue");
+					col.innerHTML = datalist[idx++].seatNum;
 				}
 			}
 		},
@@ -93,24 +68,6 @@ function seat(tname, dptime, src, tnum){
 		}
 
 	});
-}
-
-function selecting_seat(idx){
-	var seatNum = $("#"+idx).html();
-	if($("#"+idx).hasClass('selectingseat')){
-		pay -= parseInt($("#"+idx).attr("pay"));
-		count--;
-		$("#"+idx).toggleClass('selectingseat');
-		deleteCookie("seat"+idx);
-	}
-	else{
-		pay += parseInt($("#"+idx).attr("pay"));
-		count++;
-		$("#"+idx).toggleClass('selectingseat');
-		setCookie("seat"+count, seatNum, 1);
-	}
-	$("#count").html(count);
-	$("#payment").html(pay);
 }
 
 function list_align(list){
