@@ -7,58 +7,69 @@
 <%@ page import="java.text.*"%>
 <% request.setCharacterEncoding("UTF-8");%>
 	<%
-	String trainnum = request.getParameter("trainnum"); // 열차번호
-	String trainnum = request.getParameter("hochanum"); // 호차번호
+	String tname = request.getParameter("tname"); // 열차번호
+	String tnum = request.getParameter("tnum"); // 호차번호
+	String dptime = request.getParameter("dptime");
+	String src = request.getParameter("src");
 
 	BufferedReader reader = null;
 
- 	String directory = application.getRealPath("db/traininfo/"+trainnum+"/");
+ 	String directory = "/home/ubuntu/apache-tomcat-8.0.35/webapps/db/seatinfo/"+tname+"/"+tnum;
 	File dirFile = new File(directory);		//폴더
 	File []fileList=dirFile.listFiles();	//폴더 리스트 뽑기
 	
 	/* [구현1] JSONArray 및 JSONObject 선언 */
 	JSONObject json = new JSONObject();
 	JSONArray jArray = new JSONArray();
-	PrintWriter pw = response.getWriter();
- 	try{
- 		for(File tempFile : fileList){
- 			if(tempFile.isFile() && tempFile.getName().endsWith(".txt")){
- 				string tempFIleName = tempFile.getName();
- 				json = new JSONObject();
-			 	reader = new BufferedReader(new FileReader(directory+"/"+hochanum+"/"+tempFIleName));	
-			 	
+	File tempFile;
+	String tempFileName;
+	String filePath;
 
-			 	/* [구현 2] JSON 객체 사용하여 값 삽입 */
-			 	String[] s={"","","","","","",""};
-			 	String temp;
-			 	int i=0;
-			 	while ((temp= reader.readLine()) != null) {
-			 	    s[i]=temp;
-			 	    i++;
-			 	}
-			 	if(pwd.equals(s[0])){
-			 		json.put("message", "success");
-			 	}
-			 	else{
-			 		json.put("message", "fail");
-			 	}
-			 	jArray.add(json);
-			 	reader.close();
-		 	}
-		 }
-		 
- 	 } catch( Exception e ){
- 	 	json.put("message", "idnotfound");
- 	 	jArray.add(json);
- 	 	e.printStackTrace();
- 	 } finally{
- 	 	try{
- 	 		pw.print(jArray);
-			pw.flush();
-		 	pw.close();
- 	 		if( reader != null ) reader.close();
- 	 	}catch( Exception e1 ){
- 	 		e1.printStackTrace();
- 	 	}
- 	}
+	String seatNum;
+	String seatClass;
+	String seatIdx;
+	String expense;
+	String isLotate;
+	String isBigFam;
+	String isWindow;
+	String isEmpty;
+
+	PrintWriter pw = response.getWriter();
+ 	for(int i = 0; i< fileList.length; i++){
+		tempFile = fileList[i];
+ 		tempFileName = tempFile.getName();
+		filePath = directory + "/"+tempFileName;
+ 		json = new JSONObject();
+		reader = new BufferedReader(new FileReader(filePath));
+				
+		/* [구현 2] JSON 객체 사용하여 값 삽입 */
+		String[] s={"","","","","","","",""};
+		String temp;
+		int j=0;
+		while ((temp= reader.readLine()) != null) {
+		    s[j]=temp;
+		    j++;
+		}
+		seatNum = s[0];
+		seatClass = s[1];
+		seatIdx = s[2];
+		expense = s[3];
+		isLotate = s[4];
+		isBigFam = s[5];
+		isWindow = s[6];
+		isEmpty = s[7];
+		json.put("seatNum", seatNum);
+		json.put("seatClass", seatClass);
+		json.put("seatIdx", seatIdx);
+		json.put("expense", expense);
+		json.put("isLotate", isLotate);
+		json.put("isBigFam", isBigFam);
+		json.put("isWindow", isWindow);
+		json.put("isEmpty", isEmpty);
+		jArray.add(json);
+		reader.close();
+	}
+	pw.print(jArray);
+	pw.flush();
+	pw.close();
 %>
