@@ -33,7 +33,7 @@
 					</td>
 					<td>
 						<div class="invoice-section">
-							<span id="invoice"></span>원
+							<span style="float : left" id="invoice">0</span><div style="float : left">원</div>
 						</div>
 					</td>
 				</tr>
@@ -43,7 +43,7 @@
 					</td>
 					<td>
 						<div class="method-section">
-							<select name="method" class ="method">
+							<select id="method" name="method" class ="method">
 								<option value="credit">credit card</option>
 								<option value="nonaccount">nonaccount</option>
 							</select>
@@ -54,10 +54,10 @@
 			<table style="height : 10%">
 				<tr>
 					<td class="cancel-button">
-						<button type="button" class="cancel">cancel</button>
+						<button type="button" id="cancel" class="cancel">cancel</button>
 					</td>
 					<td class="next-button">
-						<button type="button" class="next">next</button>
+						<button type="button" id="next" class="next">next</button>
 					</td>
 				</tr>
 			</table>

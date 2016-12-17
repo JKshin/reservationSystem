@@ -32,7 +32,7 @@
 					</td>
 					<td>
 						<div class="invoice-section">
-							<span id="invoice">0</span>원
+							<span style="float : left" id="invoice">0</span><div style="float : left">원</div>
 						</div>
 					</td>
 				</tr>
@@ -42,7 +42,7 @@
 					</td>
 					<td>
 						<div class="method-section">
-							<select name="method" class ="method">
+							<select id="company" name="company" class ="company">
 								<option value="AAA">AAA card</option>
 								<option value="BBB">BBB card</option>
 								<option value="CCC">CCC card</option>
@@ -69,18 +69,19 @@
 							</div>
 							-
 							<div class="cardNumber">
-							<input type="number" id="thirdNumbers" class="fourthNumbers">
+							<input type="number" id="fourthNumbers" class="fourthNumbers">
 							</div>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<td class="fixed-text">
-						유효 연월 : 
+						유효 년월 : 
 					</td>
 					<td>
 						<div class="validDate-section">
-							<input type="month" id="validDate" class="validDate">
+							<input style="float : left" type="number" id="validYear" class="validDate"><div style="float : left">년</div>
+							<input style="float : left" type="number" id="validMonth" class="validDate"><div style="float : left">월</div>
 						</div>
 					</td>
 				</tr>
@@ -98,10 +99,10 @@
 		</div>
 		<div class="button-section">
 			<div class="cancel-button">
-				<button type="button" class="cancel">취소</button>
+				<button type="button" id= "cancel" class="cancel">취소</button>
 			</div>
 			<div class="next-button">
-				<button type="button" class="next">결제 요청</button>
+				<button type="button" id = "next" class="next">결제 요청</button>
 			</div>
 		</div>
 	</div>

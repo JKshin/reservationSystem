@@ -45,7 +45,7 @@ h1{
 	height : 30%;
 }
 
-.method{
+.company{
 	width : 100%;
 }
 
@@ -104,7 +104,15 @@ h1{
 	width : 20%;
 }
 
-.invoice-section, .validDate-section, .password-section{
+.invoice-section, .password-section{
 	width : 70%;
+	margin-left : 5px;
+}
+
+.validDate{
+	width : 30%;
+}
+.validDate-section{
+	width : 30%;
 	margin-left : 5px;
 }

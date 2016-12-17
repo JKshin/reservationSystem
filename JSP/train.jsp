@@ -56,7 +56,6 @@
 		valid = s[4];
 		trsrc = s[5];
 		trdst = s[6];
-		
 		if(tptime <= dptime && src.equals(trsrc) && dst.equals(trdst)){	
 			json.put("tname", tname);
 			json.put("src", trsrc);

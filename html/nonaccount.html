@@ -29,7 +29,7 @@
 					</td>
 					<td>
 						<div class="invoice-section">
-							<span id="invoice"></span>원
+							<span style="float : left" id="invoice">0</span><div style="float : left">원</div>
 						</div>
 					</td>
 				</tr>
@@ -39,7 +39,7 @@
 					</td>
 					<td>
 						<div class="bank-section">
-							<select name="bank" class ="bank">
+							<select id="bank" name="bank" class ="bank">
 								<option value="AAA">AAA 은행</option>
 								<option value="BBB">BBB 은행</option>
 								<option value="CCC">CCC 은행</option>
@@ -61,10 +61,10 @@
 		</div>
 		<div class="button-section">
 			<div class="cancel-button">
-				<button type="button" class="cancel">취소</button>
+				<button type="button" id="cancel" class="cancel">취소</button>
 			</div>
 			<div class="next-button">
-				<button type="button" class="next">다음</button>
+				<button type="button" id="next" class="next">다음</button>
 			</div>
 		</div>
 	</div>
