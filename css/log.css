@@ -15,6 +15,7 @@ table{
 	height : 100%;
 	padding-left : 10%;
 	padding-right : 10%;
+	overflow: scroll;
 }
 
 .header{
@@ -29,8 +30,13 @@ table{
 	height : 80%;
 }
 
+.hide{
+	display : none;
+}
+
 .content{
-	height : 80%;
+	height : 500px;
+	overflow : scroll;
 }
 
 .reservation-log{

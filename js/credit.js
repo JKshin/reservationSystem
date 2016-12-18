@@ -47,6 +47,7 @@ function creditCheck(company, cardNum1, cardNum2, cardNum3, cardNum4, validYear,
 		success : function (response){
 			if(response[0].message == "success"){
 				alert("결제에 성공했습니다.");
+				reservation();
 			}
 			else if(response[0].message == "fail"){
 				alert("결제 실패");
@@ -63,6 +64,67 @@ function creditCheck(company, cardNum1, cardNum2, cardNum3, cardNum4, validYear,
 }
 
 function reservation(){
+	var id = getCookie("id");
+	var tnum = getCookie("tnum");
+	var count = getCookie("count");
+	var pay = getCookie("pay");
+	var tdate = getCookie("tdate");
+	var tname = getCookie("tname");
+	var tsrc = getCookie("tsrc");
+	var tdst = getCookie("tdst");
+	var dptime = getCookie("dptime");
+	var artime = getCookie("artime");
+	var seatList;
+	for(var i = 0; i< count; i++){
+		seatList += getCookie("seat"+i);
+		if(i<count-1) seatList += ",";
+	}
+	alert(id);
+	alert(tnum);
+	alert(count);
+	alert(pay);
+	alert(tdate);
+	alert(tname);
+	alert(tsrc);
+	alert(tdst);
+	alert(dptime);
+	alert(artime);
+	alert(seatList);
+
+	$.ajax({
+		url : "/system/JSP/log.jsp",
+		type : "POST",
+		dataType: "json",
+		data : ({
+			isput : 1,
+			id : id,
+			tnum : tnum,
+			count : count,
+			pay : pay,
+			tdate : tdate,
+			tname : tname,
+			tsrc : tsrc,
+			tdst : tdst,
+			dptime : dptime,
+			artime : artime,
+			seatList : seatList
+		}),
+		success : function (response){
+			if(response[0].message == "success"){
+				alert("예약 완료되었습니다.");
+				location.href="http://52.78.4.120:8081/system/html/log.html";
+			}
+			else if(response[0].message == "fail"){
+				alert("예약 실패");
+			}
+		},
+		error : function (error){
+			alert("서버 오류");
+		}
+
+	});
+
+
 
 }
 

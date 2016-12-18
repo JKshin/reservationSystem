@@ -25,8 +25,13 @@
 	</div>
 	<div class = "content">
 		<h1>예매 내역 조회</h1>
-		<table>
+		<table id="table_log">
 			<thead>
+				<tr>
+					<td><input style="float : left" type="date" id="searchdate" class="searchdate"></td>
+					<td><p style="float : left">이후로</p></td>
+					<td><button type="button" id="search" class="search">검색</button></td>
+				</tr>
 				<tr>
 					<td style="width : 15%">예매 번호</td>
 					<td style="width : 15%">열차 번호</td>
@@ -40,17 +45,6 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>2016-15123</td>
-					<td>KTX-100</td>
-					<td>20A</td>
-					<td>5매</td>
-					<td>17:50</td>
-					<td>2016/11/15</td>
-					<td>115,000원</td>
-					<td>클릭</td>
-					<td>취소</td>
-				</tr>
 			</tbody>
 		</table>
 	</div>
