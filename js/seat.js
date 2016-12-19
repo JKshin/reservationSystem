@@ -134,6 +134,8 @@ function selectseat(i){
 	var isLotate = $("#seat"+i).attr("isLotate");
 	var isBigFam = $("#seat"+i).attr("isBigFam");
 	var seat;
+	var paylen;
+	var paystr;
 	var detail = "";
 	if(isWindow == "1"){
 		detail+="1";
@@ -171,10 +173,13 @@ function selectseat(i){
 	}
 	setCookie("count", count, 1);
 	setCookie("pay", pay, 1);
+	paystr = pay+"";
+	paylen = paystr.length;
+	if(pay != 0) paystr = paystr.substring(0,paylen-3)+","+paystr.substring(paylen-3,paylen);
 
 	$("#seat"+i).toggleClass('selectingseat');
 	$("#count").html(count);
-	$("#payment").html(pay);
+	$("#payment").html(paystr);
 }
 
 function list_align(list){

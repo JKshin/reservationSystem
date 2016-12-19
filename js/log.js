@@ -25,6 +25,7 @@ function getlog(id, searchTime){
 	var bf;
 	var win;
 	var lot;
+	var paylen;
 	var detailMerge = "";
 	$.ajax({
 		url : "/system/JSP/log.jsp",
@@ -75,7 +76,8 @@ function getlog(id, searchTime){
 
 					col = row.insertCell(row.cells.length);
 					$(col).css("vertical-align", "middle");
-					col.innerHTML = datalist[i/2].pay;
+					paylen = datalist[i/2].pay.length;
+					col.innerHTML = datalist[i/2].pay.substring(0,paylen-3)+","+datalist[i/2].pay.substring(paylen-3,paylen)+"원";
 
 					col = row.insertCell(row.cells.length);
 					$(col).css("vertical-align", "middle");
@@ -83,7 +85,7 @@ function getlog(id, searchTime){
 
 					col = row.insertCell(row.cells.length);
 					$(col).css("vertical-align", "middle");
-					col.innerHTML = '<button type="button" id="cancelbtn'+(i/2)+'" class="cancelbtn" name ="cancelbtn" tnum="'+datalist[i/2].tnum+'" tname="'+datalist[i/2].tname+
+					col.innerHTML = '<button style="width : 100%; height : 100%" type="button" id="cancelbtn'+(i/2)+'" class="cancelbtn" name ="cancelbtn" tnum="'+datalist[i/2].tnum+'" tname="'+datalist[i/2].tname+
 						'" reserveNum="'+datalist[i/2].reserveNum+'" resdate="'+datalist[i/2].resdate+
 						'" seatList="'+datalist[i/2].seatList+'" count="'+datalist[i/2].count+
 						'" onclick="cancel('+i/2+')">예매 취소</button>';

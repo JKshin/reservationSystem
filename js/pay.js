@@ -11,6 +11,10 @@
 		method = $("#method option:selected").val();
 		location.href="http://52.78.4.120:8081/system/html/"+method+".html";
 	});
+    $("#cancel").click(function(){
+        alert("결제 취소 - 로그 화면으로 이동합니다.");
+        location.href="http://52.78.4.120:8081/system/html/log.html";
+    });
 });
 
 function setCookie(cName, cValue, cDay){

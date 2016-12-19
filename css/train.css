@@ -1,6 +1,7 @@
 ﻿
-table, tr, td{
+tr, td{
 	border:1px solid black;
+	text-align : center;
 }
 
 h1{

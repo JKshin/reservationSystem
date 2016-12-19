@@ -36,6 +36,10 @@
 		}
 		
 	});
+	$("#cancel").click(function(){
+        alert("결제 취소 - 로그 화면으로 이동합니다.");
+        location.href="http://52.78.4.120:8081/system/html/log.html";
+    });
 });
 
 function creditCheck(company, cardNum1, cardNum2, cardNum3, cardNum4, validYear, validMonth, pwd){
