@@ -1,4 +1,4 @@
-<!DOCTYPE>
+﻿<!DOCTYPE>
 <html>
 <title>seat selection</title>
 <head>
@@ -8,63 +8,88 @@
 <link rel="stylesheet" type="text/css" href="/system/css/seat.css">
 </head>
 <body>
-<a href="http://52.78.4.120:8081/system/html/log.html">로그</a>|
-<a href="http://52.78.4.120:8081/system/html/credit.html">신용카드 결제</a>|
-<a href="http://52.78.4.120:8081/system/html/login.html">로그인</a>|
-<a href="http://52.78.4.120:8081/system/html/nonaccount.html">무통장 입금</a>|
-<a href="http://52.78.4.120:8081/system/html/nonaccountInfo.html">무통장 입금 정보</a>|
-<a href="http://52.78.4.120:8081/system/html/pay.html">결제</a>|
-<a href="http://52.78.4.120:8081/system/html/seat.html">좌석 선택</a>|
-<a href="http://52.78.4.120:8081/system/html/train.html">열차 선택</a>|
-<a href="http://52.78.4.120:8081/system/html/ticket.html">티켓</a>|
 <div class = "background">
 	<div class = "header"></div>
 	<div class = "side">
-		<div class = "reservation">예매</div>
-		<div class = "reservation-log">예매 조회</div>
+		<div class = "reservation"><a href="http://52.78.4.120:8081/system/html/train.html">예매</a></div>
+		<div class = "reservation-log"><a href="http://52.78.4.120:8081/system/html/log.html">예매 조회</a></div>
 	</div>
 	<div class = "content">
-		<h1>좌석 선택</h1>
-		<table id="table_seat">
-			<thead>
-				<tr>
-					<td>
-						열차 코드 : <div id = "trcode"></div>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="4">
-						<div class="trainNum-section">
-							<select id="trainNum" name="trainNum" class ="trainNum">
-								<option value="1">1호 차</option>
-								<option value="2">2호 차</option>
-								<option value="3">3호 차</option>
-								<option value="4">4호 차</option>
-								<option value="5">5호 차</option>
-								<option value="6">6호 차</option>
-								<option value="7">7호 차</option>
-								<option value="8">8호 차</option>
-								<option value="9">9호 차</option>
-								<option value="10">10호 차</option>
-							</select>
-						</div>
-					</td>
-					<td>
-						<button type="button" id="search" class="search">검색</button>
-					</td>
-				</tr>
-				<tr>
-					<td style="width : 20%">창측</td>
-					<td style="width : 20%">복도측</td>
-					<td style="width : 20%">복도</td>
-					<td style="width : 20%">복도측</td>
-					<td style="width : 20%">창측</td>
-				</tr>
-			</thead>
-			<tbody>
-				
-			</tbody>
-		</table>
+		<div class="seatCont">
+			<h1>좌석 선택</h1>
+			<table style="width : 100%" id="table_seat">
+				<thead>
+					<tr>
+						<td colspan="3">
+							열차 코드 : <div id = "trcode"></div>
+						</td>
+						<td colspan="2">
+							개수 : <div id ="count">0</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							<div class="trainNum-section">
+								<select id="trainNum" name="trainNum" class ="trainNum">
+									<option value="1">1호 차</option>
+									<option value="2">2호 차</option>
+									<option value="3">3호 차</option>
+									<option value="4">4호 차</option>
+									<option value="5">5호 차</option>
+									<option value="6">6호 차</option>
+									<option value="7">7호 차</option>
+									<option value="8">8호 차</option>
+								</select>
+							</div>
+						</td>
+						<td>
+							<button type="button" id="search" class="search">검색</button>
+						</td>
+					</tr>
+					<tr>
+						<td style="width : 20%">창측</td>
+						<td style="width : 20%">복도측</td>
+						<td style="width : 20%">복도</td>
+						<td style="width : 20%">복도측</td>
+						<td style="width : 20%">창측</td>
+					</tr>
+				</thead>
+				<tbody>
+					
+				</tbody>
+			</table>
+		</div>
+		<div class="seatCont detailCont">
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							대가족 좌석
+						</td>
+						<td>
+							창문 여부
+						</td>
+						<td>
+							회전 가능
+						</td>
+					</tr>
+					<tr>
+						<td id="bf">
+						</td>
+						<td id="win">
+						</td>
+						<td id="lot">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div style="float : right; margin-right : 48%">
+				<div style="float:left" id = "payment">0</div><div style="float:left">원</div>
+			</div>
+			<div style="float : right; margin-right : 48%">
+					<button type="button" id="paymentbtn" class="paymentbtn">결제하기</button>
+			</div>
+		</div>
 	</div>
 	<div class = "footer"></div>
 </div>

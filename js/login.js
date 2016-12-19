@@ -1,4 +1,8 @@
-$(document).ready(function(){
+﻿$(document).ready(function(){
+	var isLogin = getCookie("isLogin");
+	if(isLogin == "1"){
+		location.href="http://52.78.4.120:8081/system/html/log.html";
+	}
 	var id;
 	var pwd;
 	$("#login").click(function(){
@@ -30,6 +34,7 @@ function login(id, pwd){
 			if(response[0].message == "success"){
 				alert("로그인 성공");
 				setCookie("id", id, 1);
+				setCookie("isLogin", "1", 1);
 				location.href="http://52.78.4.120:8081/system/html/log.html";
 			}
 			else if(response[0].message == "fail"){
@@ -49,7 +54,7 @@ function login(id, pwd){
 function setCookie(cName, cValue, cDay){
         var expire = new Date();
         expire.setDate(expire.getDate() + cDay);
-        cookies = cName + '=' + escape(cValue) + '; path=/ '; // 한글 깨짐을 막기위해 escape(cValue)를 합니다.
+        cookies = cName + '=' + encodeURIComponent(cValue) + '; path=/ '; // 한글 깨짐을 막기위해 escape(cValue)를 합니다.
         if(typeof cDay != 'undefined') cookies += ';expires=' + expire.toGMTString() + ';';
         document.cookie = cookies;
     }
@@ -65,7 +70,7 @@ function getCookie(cName) {
             if(end == -1)end = cookieData.length;
             cValue = cookieData.substring(start, end);
         }
-        return unescape(cValue);
+        return decodeURIComponent(cValue);
     }
 
 function deleteCookie( cookieName )

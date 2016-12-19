@@ -1,11 +1,15 @@
-$(document).ready(function(){
+﻿$(document).ready(function(){
+    var isLogin = getCookie("isLogin");
+    if(isLogin != "1"){
+        alert("로그인을 해주세요.");
+        location.href="http://52.78.4.120:8081/system/html/login.html";
+    }
 	var pay = getCookie("pay");
 	var bank;
 	var hostname;
 
 
 	$("#invoice").html(pay);
-	alert(document.cookie);
 	$("#next").click(function(){
 		bank = $("#bank option:selected").val();
 		host = $("#host").val();
@@ -18,7 +22,7 @@ $(document).ready(function(){
 function setCookie(cName, cValue, cDay){
         var expire = new Date();
         expire.setDate(expire.getDate() + cDay);
-        cookies = cName + '=' + escape(cValue) + '; path=/ '; // 한글 깨짐을 막기위해 escape(cValue)를 합니다.
+        cookies = cName + '=' + encodeURIComponent(cValue) + '; path=/ '; // 한글 깨짐을 막기위해 escape(cValue)를 합니다.
         if(typeof cDay != 'undefined') cookies += ';expires=' + expire.toGMTString() + ';';
         document.cookie = cookies;
     }
@@ -34,7 +38,7 @@ function getCookie(cName) {
             if(end == -1)end = cookieData.length;
             cValue = cookieData.substring(start, end);
         }
-        return unescape(cValue);
+        return decodeURIComponent(cValue);
     }
 
 function deleteCookie( cookieName )

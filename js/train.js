@@ -1,4 +1,9 @@
-$(document).ready(function(){
+﻿$(document).ready(function(){
+	var isLogin = getCookie("isLogin");
+	if(isLogin != "1"){
+		alert("로그인을 해주세요.");
+		location.href="http://52.78.4.120:8081/system/html/login.html";
+	}
 	var date;
 	var time;
 	var src;

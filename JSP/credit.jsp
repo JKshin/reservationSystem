@@ -1,4 +1,4 @@
-<%@ page import="org.json.simple.JSONObject"%>
+﻿<%@ page import="org.json.simple.JSONObject"%>
 <%@ page import="org.json.simple.JSONArray"%>
 <%@ page import="java.io.FileNotFoundException"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -12,8 +12,8 @@
 	String cardNum2 = request.getParameter("cardNum2");	
 	String cardNum3 = request.getParameter("cardNum3");
 	String cardNum4 = request.getParameter("cardNum4");
-	String validYear = request.getParameter("validYear");
-	String validMonth = request.getParameter("validMonth");
+	int validYear = Integer.parseInt(request.getParameter("validYear"));
+	int validMonth = Integer.parseInt(request.getParameter("validMonth"));
 	String pwd = request.getParameter("pwd");
 	String card = cardNum1+cardNum2+cardNum3+cardNum4;
 	BufferedReader reader = null;
@@ -29,8 +29,8 @@
 
 	String c_cardNum;
 	String c_company;
-	String c_year;
-	String c_month;
+	int c_year;
+	int c_month;
 	String c_pwd;
 
 	PrintWriter pw = response.getWriter();
@@ -45,10 +45,10 @@
 		 	    i++;
 		 	}
 		 	c_company=s[1];
-		 	c_year=s[2];
-		 	c_month=s[3];
+		 	c_year=Integer.parseInt(s[2]);
+		 	c_month=Integer.parseInt(s[3]);
 		 	c_pwd=s[4];
-		 	if(company.equals(c_company) && pwd.equals(c_pwd) && validYear.equals(c_year) && validMonth.equals(c_month)){
+		 	if(company.equals(c_company) && pwd.equals(c_pwd) && validYear==c_year && validMonth==c_month){
 		 		json.put("message", "success");
 		 	}
 		 	else{

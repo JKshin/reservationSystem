@@ -1,5 +1,5 @@
-
-table, tr, td{
+﻿
+tr, td{
 	border:1px solid black;
 }
 
@@ -15,7 +15,6 @@ table{
 	height : 100%;
 	padding-left : 10%;
 	padding-right : 10%;
-	overflow: scroll;
 }
 
 .header{
@@ -35,7 +34,7 @@ table{
 }
 
 .content{
-	height : 500px;
+	height : 80%;
 	overflow : scroll;
 }
 

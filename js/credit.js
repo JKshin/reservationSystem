@@ -1,4 +1,9 @@
-$(document).ready(function(){
+﻿$(document).ready(function(){
+	var isLogin = getCookie("isLogin");
+	if(isLogin != "1"){
+		alert("로그인을 해주세요.");
+		location.href="http://52.78.4.120:8081/system/html/login.html";
+	}
 	var pay = getCookie("pay");
 	var company;
 	var cardNum1;
@@ -11,17 +16,25 @@ $(document).ready(function(){
 
 
 	$("#invoice").html(pay);
-	alert(document.cookie);
 	$("#next").click(function(){
-		company = $("#company option:selected").val();
 		cardNum1 = $("#firstNumbers").val();
 		cardNum2 = $("#secondNumbers").val();
 		cardNum3 = $("#thirdNumbers").val();
 		cardNum4 = $("#fourthNumbers").val();
+		company = $("#company option:selected").val();
 		validYear = $("#validYear").val();
 		validMonth = $("#validMonth").val();
 		pwd = $("#pwd").val();
-		creditCheck(company, cardNum1, cardNum2, cardNum3, cardNum4, validYear, validMonth, pwd);
+		if(cardNum1.length < 4 || cardNum2.length < 4 || cardNum3.length < 4 || cardNum4.length < 4){
+			alert("카드번호를 각각 4자리씩 입력해주세요.");
+		}
+		if(company.length == 0 || validYear.length ==0 || validMonth.length == 0){
+				alert("항목을 모두 채워주세요.");
+		}
+		else{
+			creditCheck(company, cardNum1, cardNum2, cardNum3, cardNum4, validYear, validMonth, pwd);
+		}
+		
 	});
 });
 
@@ -74,29 +87,24 @@ function reservation(){
 	var tdst = getCookie("tdst");
 	var dptime = getCookie("dptime");
 	var artime = getCookie("artime");
-	var seatList;
+	var seatList = "";
+	var detailList = "";
+	var isput = "1";
 	for(var i = 0; i< count; i++){
 		seatList += getCookie("seat"+i);
-		if(i<count-1) seatList += ",";
+		detailList += getCookie("detail"+i);
+		if(i<count-1){
+			seatList += ",";
+			detailList += ",";
+		}
 	}
-	alert(id);
-	alert(tnum);
-	alert(count);
-	alert(pay);
-	alert(tdate);
-	alert(tname);
-	alert(tsrc);
-	alert(tdst);
-	alert(dptime);
-	alert(artime);
-	alert(seatList);
 
 	$.ajax({
 		url : "/system/JSP/log.jsp",
 		type : "POST",
 		dataType: "json",
 		data : ({
-			isput : 1,
+			isput : isput,
 			id : id,
 			tnum : tnum,
 			count : count,
@@ -107,7 +115,8 @@ function reservation(){
 			tdst : tdst,
 			dptime : dptime,
 			artime : artime,
-			seatList : seatList
+			seatList : seatList,
+			detailList : detailList
 		}),
 		success : function (response){
 			if(response[0].message == "success"){
@@ -131,7 +140,7 @@ function reservation(){
 function setCookie(cName, cValue, cDay){
         var expire = new Date();
         expire.setDate(expire.getDate() + cDay);
-        cookies = cName + '=' + escape(cValue) + '; path=/ '; // 한글 깨짐을 막기위해 escape(cValue)를 합니다.
+        cookies = cName + '=' + encodeURIComponent(cValue) + '; path=/ '; // 한글 깨짐을 막기위해 escape(cValue)를 합니다.
         if(typeof cDay != 'undefined') cookies += ';expires=' + expire.toGMTString() + ';';
         document.cookie = cookies;
     }
@@ -147,7 +156,7 @@ function getCookie(cName) {
             if(end == -1)end = cookieData.length;
             cValue = cookieData.substring(start, end);
         }
-        return unescape(cValue);
+        return decodeURIComponent(cValue);
     }
 
 function deleteCookie( cookieName )

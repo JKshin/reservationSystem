@@ -1,5 +1,5 @@
-
-table, tr, td{
+﻿
+tr, td{
 	border:1px solid black;
 }
 
@@ -37,9 +37,29 @@ h1{
 	height : 80%;
 }
 
+.selectingseat{
+	background-color : green;
+}
+
+.seatbtn{
+	cursor : pointer;
+}
+
 
 .content{
+	margin-left : 30%;
 	height : 80%;
+}
+
+.seatCont{
+	display : inline-block;
+}
+
+.detailCont{
+	padding-top : 5%;
+	width : 50%;
+	height : 40%;
+	float : right;
 }
 
 .reservation-log, .nonpayment{

@@ -1,4 +1,4 @@
-<!DOCTYPE>
+﻿<!DOCTYPE>
 <html>
 <title>credit</title>
 <head>
@@ -9,15 +9,6 @@
 </head>
 <body>
 <div>
-<a href="http://52.78.4.120:8081/system/html/log.html">로그</a>|
-<a href="http://52.78.4.120:8081/system/html/credit.html">신용카드 결제</a>|
-<a href="http://52.78.4.120:8081/system/html/login.html">로그인</a>|
-<a href="http://52.78.4.120:8081/system/html/nonaccount.html">무통장 입금</a>|
-<a href="http://52.78.4.120:8081/system/html/nonaccountInfo.html">무통장 입금 정보</a>|
-<a href="http://52.78.4.120:8081/system/html/pay.html">결제</a>|
-<a href="http://52.78.4.120:8081/system/html/seat.html">좌석 선택</a>|
-<a href="http://52.78.4.120:8081/system/html/train.html">열차 선택</a>|
-<a href="http://52.78.4.120:8081/system/html/ticket.html">티켓</a>|
 
 </div>
 <div class="background">
@@ -57,19 +48,19 @@
 					<td>
 						<div class="cardNumber-section">
 							<div class="cardNumber">
-							<input type="number" id="firstNumbers" class="firstNumbers">
+							<input type="number" id="firstNumbers" class="firstNumbers" maxlength="4">
 							</div>
 							-
 							<div class="cardNumber">
-							<input type="number" id="secondNumbers" class="secondNumbers">
+							<input type="number" id="secondNumbers" class="secondNumbers" maxlength="4">
 							</div>
 							-
 							<div class="cardNumber">
-							<input type="number" id="thirdNumbers" class="thirdNumbers">
+							<input type="number" id="thirdNumbers" class="thirdNumbers" maxlength="4">
 							</div>
 							-
 							<div class="cardNumber">
-							<input type="number" id="fourthNumbers" class="fourthNumbers">
+							<input type="number" id="fourthNumbers" class="fourthNumbers" maxlength="4">
 							</div>
 						</div>
 					</td>
@@ -80,8 +71,8 @@
 					</td>
 					<td>
 						<div class="validDate-section">
-							<input style="float : left" type="number" id="validYear" class="validDate"><div style="float : left">년</div>
-							<input style="float : left" type="number" id="validMonth" class="validDate"><div style="float : left">월</div>
+							<input style="float : left" type="number" id="validYear" class="validDate" maxlength="2"><div style="float : left">년</div>
+							<input style="float : left" type="number" id="validMonth" class="validDate" maxlength="2"><div style="float : left">월</div>
 						</div>
 					</td>
 				</tr>
