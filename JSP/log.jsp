@@ -24,6 +24,7 @@
 	String detailList = "";
 	String reserveNum = "";
 	String resdate = "";
+	String isMarket = "";
 
 	
 
@@ -56,7 +57,7 @@
 				reader = new BufferedReader(new FileReader(filePath));
 				
 				/* [구현 2] JSON 객체 사용하여 값 삽입 */
-				String[] s={"","","","","","","","","","","","",""};
+				String[] s={"","","","","","","","","","","","","",""};
 				j=0;
 				while ((temp= reader.readLine()) != null) {
 				    s[j]=temp;
@@ -75,6 +76,7 @@
 				tdate = s[10];
 				pay = s[11];
 				detailList = s[12];
+				isMarket = s[13];
 
 				json.put("reserveNum", reserveNum);
 				json.put("tname", tname);
@@ -89,6 +91,7 @@
 				json.put("tdate", tdate);
 				json.put("pay", pay);
 				json.put("detailList", detailList);
+				json.put("isMarket", isMarket);
 				jArray.add(json);
 				reader.close();
 			}
@@ -109,6 +112,7 @@
 			artime = request.getParameter("artime");
 			seatList = request.getParameter("seatList");
 			detailList = request.getParameter("detailList");
+			isMarket = request.getParameter("isMarket");
 			Date d = new Date();
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			String dateformat=sdf.format(d);
@@ -131,7 +135,8 @@
 			writer.write(dateformat+LINE_SEPARATOR);
 			writer.write(tdate+LINE_SEPARATOR);
 			writer.write(pay+LINE_SEPARATOR);
-			writer.write(detailList);
+			writer.write(detailList+LINE_SEPARATOR);
+			writer.write(isMarket);
 			writer.flush();
 			writer.close();
 
@@ -192,7 +197,13 @@
         	seatList = request.getParameter("seatList");
         	count = request.getParameter("count");
         	valid = "1";
-         
+        	try{
+					Integer.parseInt(reserveNum.substring(0,1));
+				}
+				catch(Exception e){
+					reserveNum = reserveNum.substring(1);
+				}
+         	
         	File file = new File(directory+"/"+resdate+"/"+reserveNum);
         	if(file.exists()){
           		if(reserveNum.equals(file.getName())) file.delete();

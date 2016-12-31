@@ -40,6 +40,12 @@
 		 	String[] s={"","","","",""};
 		 	String temp;
 		 	int i=0;
+		 	Date d = new Date();
+		 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		 	String grantDate = sdf.format(d);
+		 	Random random = new Random();
+		 	int randomNum = random.nextInt(1000);
+		 	String grantNum = grantDate.substring(0,4)+grantDate.substring(5,7)+grantDate.substring(8,10)+randomNum;
 		 	while ((temp= reader.readLine()) != null) {
 		 	    s[i]=temp;
 		 	    i++;
@@ -49,6 +55,8 @@
 		 	c_month=Integer.parseInt(s[3]);
 		 	c_pwd=s[4];
 		 	if(company.equals(c_company) && pwd.equals(c_pwd) && validYear==c_year && validMonth==c_month){
+		 		json.put("grantNum", grantNum);
+		 		json.put("grantDate", grantDate);
 		 		json.put("message", "success");
 		 	}
 		 	else{

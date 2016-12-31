@@ -56,6 +56,7 @@ function reservation(){
 	var tdst = getCookie("tdst");
 	var dptime = getCookie("dptime");
 	var artime = getCookie("artime");
+	var isMarket = getCookie("isMarket");
 	var seatList = "";
 	var detailList = "";
 	var isput = "1";
@@ -85,7 +86,8 @@ function reservation(){
 			dptime : dptime,
 			artime : artime,
 			seatList : seatList,
-			detailList : detailList
+			detailList : detailList,
+			isMarket : isMarket
 		}),
 		success : function (response){
 			if(response[0].message == "success"){

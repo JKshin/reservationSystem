@@ -23,7 +23,7 @@
  	try{
 		 	reader = new BufferedReader(new FileReader(directory+"/"+id+".txt"));	
 		 	/* [구현 2] JSON 객체 사용하여 값 삽입 */
-		 	String[] s={"","","",""};
+		 	String[] s={"","","","","",""};
 		 	String temp;
 		 	int i=0;
 		 	while ((temp= reader.readLine()) != null) {

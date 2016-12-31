@@ -20,6 +20,7 @@
 	String valid;
 	String trsrc;
 	String trdst;
+	String isMarket;
 	String[] tempstr;
 
 
@@ -43,7 +44,7 @@
 		reader = new BufferedReader(new FileReader(filePath));
 				
 		/* [구현 2] JSON 객체 사용하여 값 삽입 */
-		String[] s={"","","","","","",""};
+		String[] s={"","","","","","","",""};
 		String temp;
 		int j=0;
 		while ((temp= reader.readLine()) != null) {
@@ -56,6 +57,7 @@
 		valid = s[4];
 		trsrc = s[5];
 		trdst = s[6];
+		isMarket = s[7];
 		if(tptime <= dptime && src.equals(trsrc) && dst.equals(trdst)){	
 			json.put("tname", tname);
 			json.put("src", trsrc);
@@ -63,6 +65,7 @@
 			json.put("dptime", s[1]+""+s[2]);
 			json.put("artime", artime);
 			json.put("valid", valid);
+			json.put("isMarket", isMarket);
 			jArray.add(json);
 		}
 		reader.close();

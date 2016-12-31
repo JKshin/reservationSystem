@@ -25,6 +25,7 @@ function getlog(id, searchTime){
 	var bf;
 	var win;
 	var lot;
+	var seatClass;
 	var paylen;
 	var detailMerge = "";
 	$.ajax({
@@ -60,11 +61,25 @@ function getlog(id, searchTime){
 
 					col = row.insertCell(row.cells.length);
 					$(col).css("vertical-align", "middle");
+					col.innerHTML = datalist[i/2].tnum;
+
+					col = row.insertCell(row.cells.length);
+					$(col).css("vertical-align", "middle");
 					col.innerHTML = datalist[i/2].seatList;
 
 					col = row.insertCell(row.cells.length);
 					$(col).css("vertical-align", "middle");
 					col.innerHTML = datalist[i/2].count;
+
+					col = row.insertCell(row.cells.length);
+					$(col).css("vertical-align", "middle");
+					col.innerHTML = datalist[i/2].tsrc+"->"+datalist[i/2].tdst;
+
+					col = row.insertCell(row.cells.length);
+					$(col).css("vertical-align", "middle");
+					if(datalist[i/2].isMarket == 1) col.innerHTML = "O";
+					else col.innerHTML = "X";
+					
 
 					col = row.insertCell(row.cells.length);
 					$(col).css("vertical-align", "middle");
@@ -98,7 +113,7 @@ function getlog(id, searchTime){
 
 
 								col = row.insertCell(row.cells.length);
-								col.colSpan = 9;
+								col.colSpan = 11;
 								$(col).css('padding', '10px 0px');
 								$(col).css("border-bottom", "1px solid #DBDBDB");
 								$(col).css("text-align","left");
@@ -106,39 +121,41 @@ function getlog(id, searchTime){
 									win = (detail[k].substring(0,1)==1) ? "O" : "X";
 									bf = (detail[k].substring(1,2)==1) ? "O" : "X";
 									lot = (detail[k].substring(2,3)==1) ? "O" : "X";
+									seatClass = (detail[k].substring(3,5));
 									detailMerge = detailMerge + "<tr height='38px'>"+
 											"<td style='padding-left:25px; font-weight:bold;'>"+seat[k]+"</td>"+
 											"<td>"+win+"</td>"+
 											"<td>"+bf+"</td>"+
 											"<td>"+lot+"</td>"+
+											"<td>"+seatClass+"</td>"+
 										"</tr>";
 								}
 
 
 								col.innerHTML = 
-									"<table border='0' style='width : 40%'>"+
+									"<table border='0' style='width : 40%'>"+"열차표"+
 										"<tr height='38px' style='border-bottom : 1px dashed #ccc;'>"+
 											"<td width='50px' style='padding-left:25px; font-weight:bold;'>출발일자</td>"+
-											"<td colspan='3'>"+datalist[i/2].tdate+"</td>"+
+											"<td colspan='4'>"+datalist[i/2].tdate+"</td>"+
 										"</tr>"+
 										"<tr height='38px' style='border-bottom : 1px dashed #ccc;'>"+
 											"<td style='padding-left:25px; font-weight:bold;'>출발역</td>"+
-											"<td colspan='3'>"+datalist[i/2].tsrc+
+											"<td colspan='4'>"+datalist[i/2].tsrc+
 											"</td>"+
 										"</tr>"+
 										"<tr height='38px' style='border-bottom : 1px dashed #ccc;'>"+
 											"<td style='padding-left:25px; font-weight:bold;'>도착역</td>"+
-											"<td colspan='3'>"+datalist[i/2].tdst+
+											"<td colspan='4'>"+datalist[i/2].tdst+
 											"</td>"+
 										"</tr>"+
 										"<tr height='38px' style='border-bottom : 1px dashed #ccc;'>"+
 											"<td style='padding-left:25px; font-weight:bold;'>도착 시간</td>"+
-											"<td colspan='3'>"+datalist[i/2].artime+
+											"<td colspan='4'>"+datalist[i/2].artime+
 											"</td>"+
 										"</tr>"+
 										"<tr height='38px' style='border-bottom : 1px dashed #ccc;'>"+
 											"<td style='padding-left:25px; font-weight:bold;'>호차번호</td>"+
-											"<td colspan='3'>"+datalist[i/2].tnum+
+											"<td colspan='4'>"+datalist[i/2].tnum+
 											"</td>"+
 										"</tr>"+
 										"<tr height='38px'>"+
@@ -146,6 +163,7 @@ function getlog(id, searchTime){
 											"<td style='width : 20%'>창문 여부</td>"+
 											"<td style='width : 20%'>대가족 좌석</td>"+
 											"<td style='width : 20%'>회전 가능</td>"+
+											"<td style='width : 20%'>좌석 등급</td>"+
 										"</tr>"+
 										detailMerge+
 									"</table>";

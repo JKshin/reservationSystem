@@ -68,10 +68,17 @@ function train(date, time, src, dst){
 
 					col = row.insertCell(row.cells.length);
 					$(col).css("vertical-align", "middle");
+					if(datalist[i].isMarket == 1) col.innerHTML = "O";
+					else col.innerHTML = "X";
+					
+
+					col = row.insertCell(row.cells.length);
+					$(col).css("vertical-align", "middle");
 					if(datalist[i].valid == "true"){
 						col.innerHTML = '<button type="button" id="reservation'+i+'" class="reservationbtn" name ="reservationbtn" tname="'+datalist[i].tname+
 						'" src="'+datalist[i].src+'" dst="'+datalist[i].dst+
 						'" dptime="'+datalist[i].dptime+'" artime="'+datalist[i].artime+
+						'" isMarket="'+datalist[i].isMarket+
 						'" onclick="reservationbtn('+i+')">예매 가능</button>';
 					}
 					else if(datalist[i].valid == "false"){
@@ -97,11 +104,13 @@ function reservationbtn(i){
 	var dst = $("#reservation"+i).attr("dst");
 	var dptime = $("#reservation"+i).attr("dptime");
 	var artime = $("#reservation"+i).attr("artime");
+	var isMarket = $("#reservation"+i).attr("isMarket");
 	setCookie("tname", tname, 1);
 	setCookie("tsrc", src, 1);
 	setCookie("tdst", dst, 1);
 	setCookie("dptime", dptime, 1);
 	setCookie("artime", artime, 1);
+	setCookie("isMarket", isMarket, 1);
 
 	// document.cookie = "tname = "+tname+"; ";
 	// document.cookie += "tsrc = "+src+"; ";

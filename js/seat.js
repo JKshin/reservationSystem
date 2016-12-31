@@ -14,6 +14,10 @@ $(document).ready(function(){
 	seat(tname, dptime, src, tnum);
 	$("#trcode").html(tname);
 	$("#search").click(function(){
+		count=0;
+		pay=0;
+		$("#count").html(count);
+		$("#payment").html(pay);
 		tnum = $("#trainNum option:selected").val();
 		seat(tname, dptime, src, tnum);
 	});
@@ -56,7 +60,7 @@ function seat(tname, dptime, src, tnum){
 						col.innerHTML = '<div id="seat'+idx+'" pay = "'+datalist[idx].expense+'">'+datalist[idx++].seatNum+'</div>';
 					}
 					else{
-						col.innerHTML = '<div id="seat'+idx+'" class="seatbtn" pay = "'+datalist[idx].expense+'" onclick="selectseat('+idx+')" onmouseover="detail('+idx+')" isBigFam="'+datalist[idx].isBigFam+'" isLotate="'+datalist[idx].isLotate+'" isWindow="'+datalist[idx].isWindow+'">'+datalist[idx++].seatNum+'</div>';
+						col.innerHTML = '<div id="seat'+idx+'" class="seatbtn" pay = "'+datalist[idx].expense+'" onclick="selectseat('+idx+')" seatClass="'+datalist[idx].seatClass+'" onmouseover="detail('+idx+')" isBigFam="'+datalist[idx].isBigFam+'" isLotate="'+datalist[idx].isLotate+'" isWindow="'+datalist[idx].isWindow+'">'+datalist[idx++].seatNum+'</div>';
 					}
 
 					col = row.insertCell(row.cells.length);
@@ -66,7 +70,7 @@ function seat(tname, dptime, src, tnum){
 						col.innerHTML = '<div id="seat'+idx+'" pay = "'+datalist[idx].expense+'">'+datalist[idx++].seatNum+'</div>';
 					}
 					else{
-						col.innerHTML = '<div id="seat'+idx+'" class="seatbtn" pay = "'+datalist[idx].expense+'" onclick="selectseat('+idx+')" onmouseover="detail('+idx+')" isBigFam="'+datalist[idx].isBigFam+'" isLotate="'+datalist[idx].isLotate+'" isWindow="'+datalist[idx].isWindow+'">'+datalist[idx++].seatNum+'</div>';
+						col.innerHTML = '<div id="seat'+idx+'" class="seatbtn" pay = "'+datalist[idx].expense+'" onclick="selectseat('+idx+')" seatClass="'+datalist[idx].seatClass+'" onmouseover="detail('+idx+')" isBigFam="'+datalist[idx].isBigFam+'" isLotate="'+datalist[idx].isLotate+'" isWindow="'+datalist[idx].isWindow+'">'+datalist[idx++].seatNum+'</div>';
 					}
 
 					col = row.insertCell(row.cells.length);
@@ -80,7 +84,7 @@ function seat(tname, dptime, src, tnum){
 						col.innerHTML = '<div id="seat'+idx+'" pay = "'+datalist[idx].expense+'">'+datalist[idx++].seatNum+'</div>';
 					}
 					else{
-						col.innerHTML = '<div id="seat'+idx+'" class="seatbtn" pay = "'+datalist[idx].expense+'" onclick="selectseat('+idx+')" onmouseover="detail('+idx+')" isBigFam="'+datalist[idx].isBigFam+'" isLotate="'+datalist[idx].isLotate+'" isWindow="'+datalist[idx].isWindow+'">'+datalist[idx++].seatNum+'</div>';
+						col.innerHTML = '<div id="seat'+idx+'" class="seatbtn" pay = "'+datalist[idx].expense+'" onclick="selectseat('+idx+')" seatClass="'+datalist[idx].seatClass+'" onmouseover="detail('+idx+')" isBigFam="'+datalist[idx].isBigFam+'" isLotate="'+datalist[idx].isLotate+'" isWindow="'+datalist[idx].isWindow+'">'+datalist[idx++].seatNum+'</div>';
 					}
 
 					col = row.insertCell(row.cells.length);
@@ -90,7 +94,7 @@ function seat(tname, dptime, src, tnum){
 						col.innerHTML = '<div id="seat'+idx+'" pay = "'+datalist[idx].expense+'">'+datalist[idx++].seatNum+'</div>';
 					}
 					else{
-						col.innerHTML = '<div id="seat'+idx+'" class="seatbtn" pay = "'+datalist[idx].expense+'" onclick="selectseat('+idx+')" onmouseover="detail('+idx+')" isBigFam="'+datalist[idx].isBigFam+'" isLotate="'+datalist[idx].isLotate+'" isWindow="'+datalist[idx].isWindow+'">'+datalist[idx++].seatNum+'</div>';
+						col.innerHTML = '<div id="seat'+idx+'" class="seatbtn" pay = "'+datalist[idx].expense+'" onclick="selectseat('+idx+')" seatClass="'+datalist[idx].seatClass+'" onmouseover="detail('+idx+')" isBigFam="'+datalist[idx].isBigFam+'" isLotate="'+datalist[idx].isLotate+'" isWindow="'+datalist[idx].isWindow+'">'+datalist[idx++].seatNum+'</div>';
 					}
 				}
 			}
@@ -106,6 +110,7 @@ function detail(i){
 	var isWindow = $("#seat"+i).attr("isWindow");
 	var isLotate = $("#seat"+i).attr("isLotate");
 	var isBigFam = $("#seat"+i).attr("isBigFam");
+	var seatClass = $("#seat"+i).attr("seatClass");
 	if(isWindow == "1"){
 		$("#win").html("O");
 	}
@@ -126,6 +131,7 @@ function detail(i){
 	else{
 		$("#bf").html("X");
 	}
+	$("#class").html(seatClass);
 }
 
 function selectseat(i){
@@ -133,6 +139,7 @@ function selectseat(i){
 	var isWindow = $("#seat"+i).attr("isWindow");
 	var isLotate = $("#seat"+i).attr("isLotate");
 	var isBigFam = $("#seat"+i).attr("isBigFam");
+	var seatClass = $("#seat"+i).attr("seatClass");
 	var seat;
 	var paylen;
 	var paystr;
@@ -157,6 +164,7 @@ function selectseat(i){
 	else{
 		detail+="0";
 	}
+	detail+=seatClass;
 
 	if($("#seat"+i).hasClass("selectingseat")){
 		 deleteCookie("seat"+count);

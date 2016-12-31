@@ -13,6 +13,8 @@
 	var validYear;
 	var	validMonth;
 	var	pwd;
+	var paynum = Math.floor(Math.random() * 10000000)+1;
+	$("#payNum").html(paynum);
 
 
 	$("#invoice").html(pay);
@@ -63,7 +65,7 @@ function creditCheck(company, cardNum1, cardNum2, cardNum3, cardNum4, validYear,
 		}),
 		success : function (response){
 			if(response[0].message == "success"){
-				alert("결제에 성공했습니다.");
+				alert("결제에 성공했습니다. \n승인번호 : "+response[0].grantNum+" \n승인일자 : "+response[0].grantDate);
 				reservation();
 			}
 			else if(response[0].message == "fail"){
@@ -91,6 +93,7 @@ function reservation(){
 	var tdst = getCookie("tdst");
 	var dptime = getCookie("dptime");
 	var artime = getCookie("artime");
+	var isMarket = getCookie("isMarket");
 	var seatList = "";
 	var detailList = "";
 	var isput = "1";
@@ -120,7 +123,8 @@ function reservation(){
 			dptime : dptime,
 			artime : artime,
 			seatList : seatList,
-			detailList : detailList
+			detailList : detailList,
+			isMarket : isMarket
 		}),
 		success : function (response){
 			if(response[0].message == "success"){
